@@ -1,0 +1,141 @@
+
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght=400;500;700&display=swap');
+
+:root {
+    /* Paleta de Cores */
+    --cor-principal: #201B2C;       /* Roxo bem escuro do fundo da tela */
+    --cor-card: #2F2942;            /* Roxo do card de login/cadastro */
+    --cor-secundaria: #514766;      /* Roxo dos campos de texto (inputs) */
+    --cor-menu: #1A1722;     
+    --cor-destaque: #FF4BFC;        /* Rosa Neon principal */
+    --cor-destaque-hover: #a50ba5;  /* Rosa escuro para o efeito de passar o mouse */
+    --texto-branco: #ffffff;     
+    
+    /* Tipografia e Bordas */
+    --fonte-principal: 'Inter', sans-serif;
+    --border-radius-card: 20px;
+    --border-radius-input: 8px;
+    --border-radius-btn: 12px;
+}
+
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box; /* Impede que paddings deformem o tamanho das caixas */
+    font-family: var(--fonte-principal);
+}
+
+body {
+    background-color: var(--cor-principal); /* O fundo escuro fica fixo aqui */
+    color: var(--texto-branco);
+    min-height: 100vh;
+}
+
+
+/* Centraliza o card perfeitamente no meio da tela */
+.container-centralizado {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    padding: 20px;
+}
+
+/* O retângulo roxo (Ajustado para ser mais compacto e menos alto) */
+.card-form {
+    background-color: var(--cor-card); 
+    width: 100%;
+    max-width: 360px; /* Reduzido de 400px para 360px para não ficar muito largo */
+    padding: 30px;    /* Reduzido de 40px para 30px para encolher a altura sobressalente */
+    border-radius: var(--border-radius-card);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3); 
+}
+
+/* Agrupa e afasta verticalmente os blocos de formulário (Substitui o <br>) */
+.grupo-input {
+    text-align: left;
+    margin-bottom: 15px; /* Reduzido de 20px para 15px */
+}
+
+.grupo-input label {
+    display: block;
+    color: var(--texto-branco);
+    font-size: 13px; /* Fonte levemente menor para equilibrar o espaço */
+    margin-bottom: 5px;  
+}
+
+/* O H1 padrão rosa neon */
+.titulo-principal {
+    color: var(--cor-destaque);
+    font-size: 26px; 
+    font-weight: bold;
+    letter-spacing: 2px;
+    text-align: center;
+    margin-bottom: 20px; /* Reduzido de 30px para 20px */
+}
+
+/* O padrão de todas as caixas de digitação */
+.campo-texto {
+    width: 100%;
+    background-color: var(--cor-secundaria); /* Corrigido para a variável certa */
+    border: 1px solid transparent;
+    color: var(--texto-branco);
+    padding: 12px;
+    border-radius: var(--border-radius-input);
+    font-size: 15px;
+    outline: none;
+    transition: all 0.3s ease;
+}
+
+/* Efeito visual de brilho ao clicar no campo */
+.campo-texto:focus {
+    border-color: var(--cor-destaque-hover);
+    box-shadow: 0 0 8px rgba(255, 75, 252, 0.2);
+}
+
+/* O botão comprido rosa neon */
+.botao-destaque {
+    width: 100%;
+    background-color: var(--cor-destaque);
+    color: var(--cor-principal); /* O texto interno fica com o roxo escuro do fundo */
+    border: none;
+    padding: 14px;
+    font-size: 16px;
+    font-weight: bold;
+    letter-spacing: 1px;
+    border-radius: var(--border-radius-btn);
+    cursor: pointer;
+    transition: background 0.3s ease, transform 0.1s ease;
+}
+
+.botao-destaque:hover {
+    background-color: var(--cor-destaque-hover);
+}
+
+/* Efeito sutil de clique no botão */
+.botao-destaque:active {
+    transform: scale(0.98);
+}
+
+/* Estilo para links e textos de rodapé do card */
+.texto-auxiliar {
+    margin-top: 18px; /* Reduzido de 25px para 18px */
+    font-size: 13px;
+    color: var(--texto-branco);
+    text-align: center;
+}
+
+.texto-auxiliar a {
+    color: var(--texto-branco);
+    text-decoration: none;
+    font-weight: bold;
+    border-bottom: 1px solid var(--texto-branco);
+    transition: color 0.3s ease, border-color 0.3s ease;
+}
+
+/* Efeito ao passar o mouse no link "Cadastre-se" */
+.texto-auxiliar a:hover {
+    color: var(--cor-destaque); /* Corrigido para usar a variável do topo */
+    border-color: var(--cor-destaque);
+}
