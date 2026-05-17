@@ -1,22 +1,30 @@
 /* ==========================================================================
-   ESTRUTURA GERAL (LAYOUT DASHBOARD)
+   ESTRUTURA GERAL (LAYOUT DASHBOARD CORRIGIDO)
    ========================================================================== */
 .dashboard-container {
-    display: flex;
-    min-height: 100vh;
+    display: flex;                  /* Alinha sidebar e conteúdo principal lado a lado */
+    width: 100vw;                   /* Força o painel a ocupar toda a largura da janela */
+    min-height: 100vh;              /* Ocupa pelo menos toda a altura da janela */
+    background-color: var(--cor-principal);
+    overflow-x: hidden;             /* Evita rolagem horizontal indesejada */
 }
 
 /* ==========================================================================
-   SIDEBAR (BARRA LATERAL)
+   SIDEBAR (BARRA LATERAL FIXA)
    ========================================================================== */
 .sidebar {
     width: 260px;
+    min-width: 260px;               /* IMPEDE a barra de esmagar quando a tela encolher */
+    height: 100vh;                  /* Trava a barra na altura máxima da tela */
     background-color: var(--cor-menu);
     padding: 40px 20px;
     display: flex;
     flex-direction: column;
     border-right: 1px solid rgba(255, 255, 255, 0.05);
-    flex-shrink: 0;
+    flex-shrink: 0;                 /* Garante que ela nunca perca os 260px de largura */
+    position: sticky;               /* Deixa a barra fixa enquanto o conteúdo do lado rola */
+    top: 0;
+    left: 0;
 }
 
 /* Perfil do usuário */
@@ -32,7 +40,7 @@
     margin: 0 auto 15px auto;
     overflow: hidden;
     border: 2px solid var(--texto-branco);
-    background: #e0e0e0; /* Simula o fundo cinza claro transparente do seu print */
+    background: #e0e0e0; 
 }
 
 .foto-placeholder {
@@ -80,7 +88,7 @@
     font-size: 18px;
 }
 
-/* Estado ativo (Rosa neon do print) */
+/* Estado ativo (Rosa neon) */
 .item-menu.ativo {
     background-color: var(--cor-destaque);
     color: var(--cor-principal);
@@ -92,7 +100,7 @@
 
 /* Botão Sair lá no fundo */
 .sidebar-rodape {
-    margin-top: auto; /* Empurra o botão para a última linha da sidebar */
+    margin-top: auto; 
 }
 
 .btn-sair {
@@ -111,12 +119,14 @@
 }
 
 /* ==========================================================================
-   CONTEÚDO PRINCIPAL
+   CONTEÚDO PRINCIPAL (OCUPA O ESPAÇO RESTANTE)
    ========================================================================== */
 .conteudo-principal {
-    flex-grow: 1;
+    flex-grow: 1;                   /* Faz esta área tomar todo o espaço restante do monitor */
     padding: 40px 50px;
-    overflow-y: auto;
+    height: 100vh;                  /* Iguala o limite de altura da tela */
+    overflow-y: auto;               /* Se o conteúdo crescer, a rolagem fica só nessa área */
+    box-sizing: border-box;
 }
 
 /* Alinhamento do Título da Esquerda */
@@ -146,7 +156,7 @@
 }
 
 .busca-container .campo-texto {
-    padding-left: 45px; /* Abre espaço para o ícone de lupa */
+    padding-left: 45px; 
     background-color: var(--cor-card);
     border-radius: 12px;
 }
@@ -208,24 +218,20 @@
     padding: 0;
     transition: color 0.3s ease;
     
-    /* ALINHAMENTO PERFEITO EM LINHA */
-    display: inline-flex;  /* Força os elementos a ficarem na mesma linha */
-    align-items: center;   /* Centraliza o ícone verticalmente com o texto */
-    gap: 8px;              /* Cria o espaço exato de 8px entre a vassoura e o texto */
+    display: inline-flex;  
+    align-items: center;   
+    gap: 8px;              
     
-    /* RESET DE SEGURANÇA (Evita o efeito embaralhado do print) */
     position: relative;
     text-shadow: none;
     letter-spacing: normal;
-    text-transform: none;  /* Deixa o texto normal, sem forçar tudo maiúsculo */
+    text-transform: none;  
 }
 
-/* Ajuste sutil no tamanho do ícone */
 .btn-limpar i {
     font-size: 14px;
 }
 
-/* Efeito de acender em rosa neon ao passar o mouse */
 .btn-limpar:hover {
     color: var(--cor-destaque);
 }
@@ -235,7 +241,7 @@
    ========================================================================== */
 .grade-jogos {
     display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(220px, 1fr)); /* Grade automática fantástica */
+    grid-template-columns: repeat(auto-fill, minmax(220px, 1fr)); 
     gap: 30px;
 }
 
@@ -252,7 +258,7 @@
 .capa-jogo-container {
     position: relative;
     height: 180px;
-    background-color: #f0f0f0; /* Fundo quadriculado padrão */
+    background-color: #f0f0f0; 
 }
 
 .capa-placeholder {
@@ -317,7 +323,7 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
-    margin-top: auto; /* Cola os botões na última linha sempre */
+    margin-top: auto; 
 }
 
 .btn-detalhar {
@@ -345,6 +351,9 @@
     color: var(--cor-destaque);
 }
 
+/* ==========================================================================
+   AVISO VAZIO
+   ========================================================================== */
 .aviso-vazio {
     display: flex;
     flex-direction: column;
@@ -354,7 +363,7 @@
     padding: 60px 20px;
     background-color: var(--cor-menu);
     border-radius: 14px;
-    border: 2px dashed rgba(255, 75, 252, 0.15); /* Borda tracejada sutil em rosa */
+    border: 2px dashed rgba(255, 75, 252, 0.15); 
     margin-top: 20px;
 }
 
@@ -363,7 +372,7 @@
     color: var(--cor-destaque);
     margin-bottom: 15px;
     opacity: 0.8;
-    animation: flutuar 3s ease-in-out infinite; /* Um efeito opcional de flutuação */
+    animation: flutuar 3s ease-in-out infinite; 
 }
 
 .aviso-vazio p {
@@ -373,7 +382,6 @@
     letter-spacing: 0.5px;
 }
 
-/* Animaçãozinha para deixar o dado flutuando de leve */
 @keyframes flutuar {
     0%, 100% { transform: translateY(0); }
     50% { transform: translateY(-8px); }
