@@ -4,10 +4,96 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Tela inicial</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
     <link rel="stylesheet" href="../../shared/styles/global.css">
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
+  <div class="dashboard-container">
+        
+        <aside class="sidebar">
+            <div class="perfil-usuario">
+                <div class="foto-usuario-wrapper">
+                    <div class="foto-placeholder"></div>
+                </div>
+                <h2 id="nome-usuario">Nome User</h2>
+                <span>Jogos registrados: 0</span>
+            </div>
+
+            <nav class="menu-navegacao">
+                <a href="#" class="item-menu ativo">
+                    <i class="fa-solid fa-folder-open"></i> Minha coleção
+                </a>
+                <a href="../games/index.html" class="item-menu">
+                    <i class="fa-solid fa-circle-plus"></i> Adicionar jogos
+                </a>
+            </nav>
+
+            <div class="sidebar-rodape">
+                <a href="../login/index.html" class="btn-sair">
+                    <i class="fa-solid fa-right-from-bracket"></i> Sair
+                </a>
+            </div>
+        </aside>
+
+        <main class="conteudo-principal">
+            
+            <header class="topo-pagina">
+                <div class="titulos-home">
+                    <h1 class="titulo-principal text-left">MINHA COLEÇÃO</h1>
+                    <p class="subtitulo">Gerencie seus jogos de tabuleiro</p>
+                </div>
+                
+                <div class="busca-container">
+                    <i class="fa-solid fa-magnifying-glass icone-busca"></i>
+                    <input type="text" class="campo-texto" placeholder="Buscar jogo pelo nome...">
+                </div>
+            </header>
+
+            <section class="barra-filtros">
+                <div class="filtros-grupo">
+                    <div class="filtro-item">
+                        <label>CATEGORIA</label>
+                        <select class="campo-texto">
+                            <option>Todas</option>
+                        </select>
+                    </div>
+                    <div class="filtro-item">
+                        <label>JOGADORES</label>
+                        <select class="campo-texto">
+                            <option>Qualquer</option>
+                        </select>
+                    </div>
+                    <div class="filtro-item">
+                        <label>TEMPO</label>
+                        <select class="campo-texto">
+                            <option>Qualquer</option>
+                        </select>
+                    </div>
+                    <div class="filtro-item">
+                        <label>STATUS</label>
+                        <select class="campo-texto">
+                            <option>Todos</option>
+                        </select>
+                    </div>
+                </div>
+                <button class="btn-limpar">
+                  <i class="fa-solid fa-broom"></i>Limpar filtros
+                </button>
+            </section>
+
+            <section class="grade-jogos" id="grade-jogos" style="display: none;">
+            </section>
+
+            <div class="aviso-vazio" id="aviso-vazio">
+              <i class="fa-solid fa-dice-d6 icone-vazio"></i>
+              <p>Nenhum jogo adicionado</p>
+            </div>
+           
+        </main>
+    </div>
+    
   <script src="./home.js"></script>
 </body>
 </html>
