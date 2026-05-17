@@ -1,0 +1,90 @@
+
+/* Aumentamos um pouco a largura máxima do card nesta tela 
+   para as duas colunas terem espaço suficiente sem amassar os textos */
+.cadastro-width {
+    max-width: 550px !important; 
+}
+
+
+/* Centraliza o bloco da foto no topo do card */
+.foto-perfil-container {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 25px; /* Empurra o título "CADASTRO" para baixo */
+}
+
+/* Organiza o círculo e o texto "Adicione foto..." um embaixo do outro */
+.label-foto {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    cursor: pointer;
+    transition: opacity 0.3s ease;
+}
+
+/* Efeito visual sutil de opacidade ao passar o mouse para indicar que é clicável */
+.label-foto:hover {
+    opacity: 0.8;
+}
+
+
+.circulo-camera {
+    width: 100px;
+    height: 100px;
+    border: 2px solid var(--cor-destaque);
+    border-radius: 50%; /* Faz o quadrado virar um círculo perfeito */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 10px; /* Afasta o círculo do textinho de baixo */
+}
+
+
+.circulo-camera i {
+    color: var(--cor-destaque);
+    font-size: 32px;
+}
+
+
+.label-foto span {
+    color: var(--texto-branco);
+    font-size: 11px;
+    opacity: 0.7;
+}
+
+
+
+.linha-dupla {
+    display: grid;
+    grid-template-columns: 1fr 1fr; 
+    gap: 20px; /* Cria um espaçamento de 20px de largura entre a coluna da esquerda e a da direita */
+}
+
+
+
+#cadastro-form .botao-destaque {
+    display: block;
+    width: auto;             
+    min-width: 200px;        
+    margin: 25px auto 0 auto; 
+    padding: 12px 30px;      
+}
+
+/* Força uma altura fixa ideal para a caixa de Bio */
+#bio {
+    height: 90px; /* Impede que o campo de Bio estique demais e desconfigure a proporção do card */
+}
+
+
+@media (max-width: 480px) {
+    /* No celular as duas colunas quebram e viram uma só para os campos não ficarem esmagados */
+    .linha-dupla {
+        grid-template-columns: 1fr;
+        gap: 0;
+    }
+    
+    /* No celular o botão volta a ocupar a largura total*/
+    #cadastro-form .botao-destaque {
+        width: 100%;
+    }
+}

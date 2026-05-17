@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    /*bibloteca de icones*/
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
+    <link rel="stylesheet" href="../../shared/styles/global.css">
+    <link rel="stylesheet" href="style.css">
+    <title>Tela de cadastro</title>
+</head>
+<body>
+    <main class="container-centralizado">
+        
+        <div class="card-form cadastro-width">
+            
+            <div class="foto-perfil-container">
+                <label for="foto-upload" class="label-foto">
+                    <div class="circulo-camera">
+                        <i class="fa-solid fa-camera"></i>
+                    </div>
+                    <span>Adicione uma foto de perfil</span>
+                </label>
+                <input type="file" id="foto-upload" accept="image/*" hidden>
+            </div>
+
+            <h1 class="titulo-principal">CADASTRO</h1>
+
+            <form id="cadastro-form">
+                
+                <div class="linha-dupla">
+                    <div class="grupo-input">
+                        <label for="nome">Nome</label>
+                        <input type="text" class="campo-texto" id="nome" required>
+                    </div>
+
+                    <div class="grupo-input">
+                        <label for="genero">Gênero</label>
+                        <select class="campo-texto" id="genero" required>
+                            <option value="nao_informar" selected>Prefiro não informar</option>
+                            <option value="masculino">Masculino</option>
+                            <option value="feminino">Feminino</option>
+                            <option value="nao_binario">Não binário</option>
+                        </select>
+                    </div>
+                </div>
+
+                <div class="linha-dupla">
+                    <div class="grupo-input">
+                        <label for="email">E-mail</label>
+                        <input type="email" class="campo-texto" id="email" required autocomplete="email">
+                    </div>
+
+                    <div class="grupo-input">
+                        <label for="senha">Senha</label>
+                        <input type="password" class="campo-texto" id="senha" required>
+                    </div>
+                </div>
+
+                <div class="grupo-input">
+                    <label for="bio">Bio</label>
+                    <textarea class="campo-texto" id="bio" style="resize: none;"></textarea>
+                </div>
+
+                <button type="submit" class="botao-destaque">CADASTRAR</button>
+
+            </form>
+
+            <p class="texto-auxiliar">
+                Já tem uma conta? <a href="../login/index.html">Faça login</a>
+            </p>
+
+        </div>
+    </main>
+    <script src="./cadastro.js"></script>
+</body>
+</html>
